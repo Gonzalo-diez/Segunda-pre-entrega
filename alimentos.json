@@ -1,0 +1,9 @@
+{
+    "nombre_categoria": "Alimentos",
+    "productos": [
+        {
+            "nombre": "Pera",
+            "precio": "500"
+        }
+    ]
+}
