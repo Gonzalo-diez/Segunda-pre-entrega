@@ -86,6 +86,7 @@ class menu:
                 if producto_comprado is not None:
                     print("Producto comprado:")
                     producto_comprado.mostrar_informacion()
+                    alimentos.guardar_en_json("alimentos.json")
                 else:
                     print("El producto no está disponible.")
         elif opcion == "8":
@@ -101,6 +102,7 @@ class menu:
                 if producto_comprado is not None:
                     print("Producto comprado:")
                     producto_comprado.mostrar_informacion()
+                    electronica.guardar_en_json("electronica.json")
                 else:
                     print("El producto no está disponible.")
         elif opcion == "9":
