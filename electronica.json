@@ -1,9 +1,4 @@
 {
     "nombre_categoria": "Electronica",
-    "productos": [
-        {
-            "nombre": "PS4",
-            "precio": "150000"
-        }
-    ]
+    "productos": []
 }

@@ -1,23 +1,25 @@
 import json
-from modulo_cliente import Cliente
 
 class Producto:
-    def __init__(self, nombre, precio):
+    def __init__(self, id, nombre, precio):
+        self.id = id
         self.nombre = nombre
         self.precio = precio
 
     def mostrar_informacion(self):
+        print("ID:", self.id)
         print("Nombre:", self.nombre)
         print("Precio:", self.precio)
 
     def to_dict(self):
         return {
+            "id": self.id,
             "nombre": self.nombre,
             "precio": self.precio
         }
 
     def from_dict(producto_dict):
-        return Producto(producto_dict["nombre"], producto_dict["precio"])
+        return Producto(producto_dict["id"], producto_dict["nombre"], producto_dict["precio"])
 
 
 class CategoriaAlimento:
@@ -34,6 +36,13 @@ class CategoriaAlimento:
         for producto in self.productos:
             producto.mostrar_informacion()
             print()
+
+    def comprar_producto(self, id_producto):
+        for producto in self.productos:
+            if producto.id == id_producto:
+                self.productos.remove(producto)
+                return producto
+        return None
 
     def guardar_en_json(self, archivo):
         productos_dict = [producto.to_dict() for producto in self.productos]
@@ -69,6 +78,13 @@ class CategoriaElectronica:
             producto.mostrar_informacion()
             print()
 
+    def comprar_producto(self, nombre_producto):
+        for producto in self.productos:
+            if producto.nombre == nombre_producto:
+                self.productos.remove(producto)
+                return producto
+        return None
+    
     def guardar_en_json(self, archivo):
         productos_dict = [producto.to_dict() for producto in self.productos]
         data = {
