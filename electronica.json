@@ -1,4 +1,10 @@
 {
     "nombre_categoria": "Electronica",
-    "productos": []
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "PC",
+            "precio": "2500"
+        }
+    ]
 }

@@ -38,11 +38,16 @@ class CategoriaAlimento:
             print()
 
     def comprar_producto(self, id_producto):
+        producto_comprado = None
         for producto in self.productos:
             if producto.id == id_producto:
-                self.productos.remove(producto)
-                return producto
-        return None
+                producto_comprado = producto
+                break
+        
+        if producto_comprado is not None:
+            self.productos.remove(producto_comprado)
+        
+        return producto_comprado
 
     def guardar_en_json(self, archivo):
         productos_dict = [producto.to_dict() for producto in self.productos]
@@ -78,12 +83,17 @@ class CategoriaElectronica:
             producto.mostrar_informacion()
             print()
 
-    def comprar_producto(self, nombre_producto):
+    def comprar_producto(self, id_producto):
+        producto_comprado = None
         for producto in self.productos:
-            if producto.nombre == nombre_producto:
-                self.productos.remove(producto)
-                return producto
-        return None
+            if producto.id == id_producto:
+                producto_comprado = producto
+                break
+        
+        if producto_comprado is not None:
+            self.productos.remove(producto_comprado)
+        
+        return producto_comprado
     
     def guardar_en_json(self, archivo):
         productos_dict = [producto.to_dict() for producto in self.productos]

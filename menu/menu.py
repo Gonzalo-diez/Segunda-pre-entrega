@@ -42,23 +42,29 @@ class menu:
             if not usuario_autenticado:
                 print("Inicie sesión o registrese")
             else:
-                id = int(input("Ingrese el id del alimento: "))
-                producto = input("Ingrese el alimento que desee agregar a la tienda: ")
-                precio = input("Ingrese el precio del alimento: ")
-                alimentos = CategoriaAlimento("Alimentos")
-                alimentos.agregar_producto(Producto(id, producto, precio))
-                alimentos.guardar_en_json("alimentos.json")
+                try: 
+                    id = int(input("Ingrese el ID del alimento que desea comprar: "))
+                    producto = input("Ingrese el alimento que desee agregar a la tienda: ")
+                    precio = input("Ingrese el precio del alimento: ")
+                    alimentos = CategoriaAlimento("Alimentos")
+                    alimentos.agregar_producto(Producto(id, producto, precio))
+                    alimentos.guardar_en_json("alimentos.json")
+                except ValueError:
+                    print("No ha ingresado un número como id!")
         elif opcion == "4":
             # Opción de agregar tecnologia a la tienda de electronica, solo si el usuario esta logueado
             if not usuario_autenticado:
                 print("Inicie sesión o registrese")
             else:
-                id = int(input("Ingrese el id de la electronica: "))
-                producto = input("Ingrese la tecnologia que desee agregar a la tienda: ")
-                precio = input("Ingrese el precio de la tecnologia: ")
-                electronica = CategoriaElectronica("Electronica")
-                electronica.agregar_producto(Producto(id, producto, precio))
-                electronica.guardar_en_json("electronica.json")
+                try: 
+                    id = int(input("Ingrese el ID de la electronica que desea comprar: "))
+                    producto = input("Ingrese la tecnologia que desee agregar a la tienda: ")
+                    precio = input("Ingrese el precio de la tecnologia: ")
+                    electronica = CategoriaElectronica("Electronica")
+                    electronica.agregar_producto(Producto(id, producto, precio))
+                    electronica.guardar_en_json("electronica.json")
+                except ValueError:
+                    print("No ha ingresado un número como id!")
         elif opcion == "5":
             # Opción para mostrar los alimentos de la tienda de alimentos
             alimentos.cargar_desde_json("alimentos.json")
@@ -69,7 +75,10 @@ class menu:
             electronica.mostrar_productos()
         elif opcion == "7":
             # Opción para comprar un alimento de la tienda de alimentos
-            id = int(input("Ingrese el ID del alimento que desea comprar: "))
+            try: 
+                id = int(input("Ingrese el ID del alimento que desea comprar: "))
+            except ValueError:
+                print("No ha ingresado un número como id!")
             if not usuario_autenticado:
                 print("Inicie sesión o regístrese")
             else:
@@ -77,12 +86,14 @@ class menu:
                 if producto_comprado is not None:
                     print("Producto comprado:")
                     producto_comprado.mostrar_informacion()
-                    alimentos.guardar_en_json("alimentos.json")
                 else:
                     print("El producto no está disponible.")
         elif opcion == "8":
             # Opción para comprar un producto de electrónica de la tienda de electrónica
-            id = int(input("Ingrese el ID del producto de electrónica que desea comprar: "))
+            try: 
+                id = int(input("Ingrese el ID de la electronica que desea comprar: "))
+            except ValueError:
+                print("No ha ingresado un número como id!")
             if not usuario_autenticado:
                 print("Inicie sesión o regístrese")
             else:
@@ -90,7 +101,6 @@ class menu:
                 if producto_comprado is not None:
                     print("Producto comprado:")
                     producto_comprado.mostrar_informacion()
-                    electronica.guardar_en_json("electronica.json")
                 else:
                     print("El producto no está disponible.")
         elif opcion == "9":
