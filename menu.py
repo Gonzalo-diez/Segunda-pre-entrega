@@ -1,5 +1,5 @@
-from modulo_cliente import Cliente
-from modulo_productos import Producto, CategoriaAlimento, CategoriaElectronica
+from modulo_cliente import *
+from modulo_productos import *
 
 # Crear instancias de las categorías de alimentos y electrónica
 alimentos = CategoriaAlimento("Alimentos")
