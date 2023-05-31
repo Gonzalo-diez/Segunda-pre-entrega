@@ -1,10 +1,10 @@
 from setuptools import setup
 
 setup(
-    name="Primer_paquete",
+    name="menu",
     version="1.0",
     description="Paquete distribuido",
     author="Gonzalo Juan Diez",
 
-    packages=["Primer_paquete"]
+    packages=["menu"]
 )
